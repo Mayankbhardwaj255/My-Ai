@@ -39,10 +39,12 @@ This stores the token in Redis as a blacklist entry for 24 hours (or until its e
 ✅ Token Validation (Middleware Assumption)
 In protected routes, a middleware can check Redis to confirm if the token is blacklisted:
 
+```js
 const isBlacklisted = await redisClient.get(token);
 if (isBlacklisted) {
   return res.status(401).json({ message: 'Token is blacklisted' });
 }
+```
 📌 Why Redis?
 🧠 Fast in-memory checks – Redis makes blacklist lookups instant.
 
