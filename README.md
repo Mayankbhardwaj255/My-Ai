@@ -34,6 +34,7 @@ const token = req.cookies.token || req.headers.authorization?.split(' ')[1];
 await redisClient.set(token, 'logout', { EX: 60 * 60 * 24 }); // Expires in 24 hrs
 
 This stores the token in Redis as a blacklist entry for 24 hours (or until its expiry), preventing it from being reused.
+```
 
 ✅ Token Validation (Middleware Assumption)
 In protected routes, a middleware can check Redis to confirm if the token is blacklisted:
@@ -48,5 +49,6 @@ if (isBlacklisted) {
 ⏱️ TTL support – Tokens automatically expire after their lifespan.
 
 🔐 Stateless security – Prevents reuse of JWTs after logout without a DB call.
+
 
 
