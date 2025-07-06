@@ -105,11 +105,11 @@ export const getAllUsersController = async (req, res) => {
             users: allUsers
         })
 
-    } catch (err) {
+    } catch (error) {
 
-        console.log(err)
+        console.log(error)
 
-        res.status(400).json({ error: err.message })
+        res.status(400).json({ error: error.message })
 
     }
 }

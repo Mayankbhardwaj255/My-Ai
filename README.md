@@ -17,7 +17,7 @@ In this real-time AI chat application, **Redis is used for token management**, s
 
 ---
 
-## 🚀 How It Works
+## 🚀 How It Works in project
 
 ### 🔑 Login Flow
 
